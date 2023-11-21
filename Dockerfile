@@ -35,7 +35,7 @@ RUN GDAL_VERSION=$(gdal-config --version) && poetry add GDAL==$GDAL_VERSION
 
 RUN poetry install
 
-ENV TORCH_HUB=/app/torch
+ENV TORCH_HOME=/app/torch
 ENV SHELL=/bin/bash
 
 
