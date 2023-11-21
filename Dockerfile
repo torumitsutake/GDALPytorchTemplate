@@ -29,6 +29,7 @@ RUN pip install poetry
 WORKDIR /app
 
 COPY pyproject.toml pyproject.toml
+RUN poetry add numpy
 RUN GDAL_VERSION=$(gdal-config --version) && poetry add GDAL==$GDAL_VERSION
 
 
