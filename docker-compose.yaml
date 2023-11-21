@@ -1,0 +1,19 @@
+version: '3.10'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./workdir:/workdir
+      - ./torch:/torch
+      - ./pyproject.toml
+    command: bash
+    tty: true
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 2
+              capabilities: [gpu]

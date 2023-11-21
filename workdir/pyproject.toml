@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "gdal_pytorch_template"
+version = "0.1.0"
+description = "template project for gdal and pytorch"
+authors = ["torumitsutake <torumitsutake@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+segment-geospatial = "^0.10.2"
+tqdm = "^4.66.1"
+numpy = "^1.26.2"
+leafmap = "^0.29.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
