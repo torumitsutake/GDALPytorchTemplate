@@ -9,4 +9,4 @@ build:
 logs:
 	docker compose logs -f
 shell:
-	docker compose exec app bash
+	docker compose exec app poetry shell
