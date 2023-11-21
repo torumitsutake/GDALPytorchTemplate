@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "gdal_pytorch_template"
+name = "gdal-pytorch-template"
 version = "0.1.0"
-description = "template project for gdal and pytorch"
+description = ""
 authors = ["torumitsutake <torumitsutake@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-segment-geospatial = "^0.10.2"
+python = "3.10"
+torch = "^2.1.1"
+torchvision = "^0.16.1"
+torchaudio = "^2.1.1"
 tqdm = "^4.66.1"
-numpy = "^1.26.2"
-leafmap = "^0.29.1"
 
 
 [build-system]

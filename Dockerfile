@@ -24,16 +24,17 @@ RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y libgl1-mesa-dev libopencv-dev 
 
 RUN pip install --upgrade pip
-RUN GDAL_VERSION=$(gdal-config --version) && pip install GDAL==$GDAL_VERSION
-
 RUN pip install poetry
 
-COPY ./workdir/pyproject.toml /workdir/pyproject.toml
-WORKDIR /workdir
+WORKDIR /app
+
+COPY pyproject.toml pyproject.toml
+RUN GDAL_VERSION=$(gdal-config --version) && poetry add GDAL==$GDAL_VERSION
+
 
 RUN poetry install
 
-ENV TORCH_HUB=/torch
+ENV TORCH_HUB=/app/torch
 
 
 CMD ["poetry", "shell"]
