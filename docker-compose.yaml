@@ -4,6 +4,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
     volumes:
       - .:/app
     command: bash
@@ -14,4 +17,4 @@ services:
           devices:
             - driver: nvidia
               count: 2
-              capabilities: [gpu]
+              capabilities: [ gpu ]

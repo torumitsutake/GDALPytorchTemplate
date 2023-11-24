@@ -1,2 +1,5 @@
-poetry.lock
 *.pth
+torch/*
+*.tif
+*.gpkg
+.env
