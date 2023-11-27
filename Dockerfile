@@ -25,11 +25,16 @@ RUN addgroup --gid $GID user && \
 USER user
 RUN pip install --upgrade pip
 RUN pip install poetry
+RUN pip install numpy
+RUN pip install GDAL==$(gdal-config --version)
 ENV PATH=$PATH:/home/user/.local/bin
 COPY --chown=user:user pyproject.toml pyproject.toml
 COPY --chown=user:user poetry.lock poetry.lock
+RUN poetry add numpy
 RUN poetry install
-RUN GDAL_VERSION=$(gdal-config --version) && poetry add GDAL[numpy]==$GDAL_VERSION
+
+RUN poetry run pip install GDAL==$(gdal-config --version)
+
 ENV TORCH_HOME=/app/torch
 ENV SHELL=/bin/bash
-CMD ["poetry", "shell"]
+CMD ["bash"]

@@ -9,6 +9,8 @@ restart:
 	docker compose down && docker-compose up -d
 build:
 	docker compose build --build-arg UID=$(UID) --build-arg GID=$(GID) 
+clean-build:
+	docker compose build --no-cache --build-arg UID=$(UID) --build-arg GID=$(GID)
 logs:
 	docker compose logs -f
 shell:
